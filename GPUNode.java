@@ -27,4 +27,8 @@ public class GPUNode extends Node {
 
 
   }
+
+  public boolean isGPUNode() {
+    return true;
+  }
 }
