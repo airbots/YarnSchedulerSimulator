@@ -11,6 +11,29 @@
 
 public class Simulator {
 
+  Cluster cluster;
+  Scheduler scheduler;
+
+  public Simulator(Cluster cluster, Scheduler scheduler) {
+    this.cluster = cluster;
+    this.scheduler = scheduler;
+  }
+
+  //work load generator code
+
+
+  //create cluster and generate block distribution
+  public Cluster createCluster(int CPUNode, int GPUNode, int numBlocks, int replica){
+    Cluster cluster = new Cluster(CPUNode, GPUNode, numBlocks, replica);
+    cluster.init();
+    return cluster;
+  }
+
+  //scheduling policy
+  public Scheduler createScheduler(int policy) {
+    return Scheduler.createScheduler(policy);
+  }
+
   public static void main (String[] args) {
 
   }

@@ -17,7 +17,7 @@ public abstract class Node {
   String id;
   HashSet<String> poolofBlocks; //for data locality concern
   HashMap<Integer, Long> containers;
-  float energyEff;
+  double energyEff;
 
   public void init() {
     containers = new HashMap<Integer, Long>();
@@ -87,7 +87,7 @@ public abstract class Node {
    * get node energy efficiency
    * @return
    */
-  public float getEnergyEff() {
+  public double getEnergyEff() {
     return energyEff;
   }
 
@@ -95,7 +95,7 @@ public abstract class Node {
    * set energy efficiency
    * @param eff
    */
-  public void setEnergyEff(float eff) {
+  public void setEnergyEff(double eff) {
     if(eff >= 0) {
       this.energyEff = eff;
     }
@@ -106,5 +106,19 @@ public abstract class Node {
    */
   public boolean isCPUNode(){
     return isCPUNode;
+  }
+
+  /**
+   * add block into current node
+   */
+  public void addBlock(String blockId) {
+    this.poolofBlocks.add(blockId);
+  }
+
+  /**
+   * check whether node contains this Block or not
+   */
+  public boolean containsBlock(String blockId) {
+    return this.poolofBlocks.contains(blockId);
   }
 }

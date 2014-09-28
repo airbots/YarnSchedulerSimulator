@@ -7,5 +7,9 @@
  */
 public class CPUNode extends Node {
 
+  public CPUNode(int numCPU) {
+    this.numCPU = numCPU;
+  }
+
 
 }
